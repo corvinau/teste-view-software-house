@@ -1,0 +1,43 @@
+body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  margin: 0;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+
+  background-color: #171e23;
+}
+
+/* estilização da área de login */
+.login-area {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+
+  box-shadow: rgba(122, 161, 160, 0.5) 0px 5px 15px;
+
+  border-radius: 8px;
+  padding: 30px;
+  min-height: 50vh;
+  width: 100%;
+
+  background-color: #7aa1a0;
+}
+
+img {
+  margin: 20px;
+}
