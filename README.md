@@ -22,7 +22,7 @@ Para acessar o projeto, basta clonar o repositório ou realizar o download dos a
 
 Assim sendo, siga os passos seguintes em dois terminais diferentes depois de clonar o repositório.
 
-#### Front-end
+### Front-end
 
 Acesse a pasta `client` do projeto e instale as dependências utilizando o seguinte comando no seu terminal:
 
@@ -38,7 +38,7 @@ npm run dev
 
 Com isso, o front-end estará rodando, em seguida suba o back-end.
 
-#### Back-end
+### Back-end
 
 Acesse a pasta `server` do projeto e instale as dependências utilizando o seguinte comando no seu terminal:
 
@@ -51,8 +51,6 @@ Após instalar as dependências, utilize o seguinte comando no seu terminal para
 ```sh
 npm run dev
 ```
-
----
 
 Com isso, a aplicação estará rodando. Basta acessar <code>http://localhost:5173</code> em seu navegador. Lembre-se de abrir duas guias diferentes com o mesmo endereço, e entrar com usuários diferentes para testar as funcionalidades.
 
