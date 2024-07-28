@@ -3,12 +3,10 @@ import * as io from 'socket.io-client';
 
 import './App.css';
 
-// Importação dos componentes
 import Login from './components/Login/Login';
 import Chat from './components/Chat/Chat';
 
 function App() {
-  // Constantes utilizadas
   const [chatVisibility, setChatVisibility] = useState<boolean>(false);
   const [socket, setSocket] = useState<io.Socket | null>(null);
 

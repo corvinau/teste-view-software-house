@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { Container } from './styles';
 
-// Interfaces para tipagem de componentes e constantes
 interface ChatProps {
   socket: io.Socket | null;
 }
@@ -22,7 +21,6 @@ interface IUserProps {
 }
 
 const Chat: React.FC<ChatProps> = ({ socket }) => {
-  // Constantes utilizadas
   const [inputValue, setInputValue] = useState<string>('');
   const [userName, setUserName] = useState<IUserProps>();
   const [action, setAction] = useState<string>();
@@ -30,14 +28,11 @@ const Chat: React.FC<ChatProps> = ({ socket }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const bottomRef = useRef<any>(null);
 
-  // Função que pega as mudanças no input da mensagem
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
     e.target.focus();
   };
 
-  // Função que renderiza as mensagens e notificações na tela caso tenha alguma
-  // alteração nas suas dependências
   useEffect(() => {
     // Pega o nome de usuário que foi digitado para acessar a aplicação
     socket?.on('set_username', (data: IUserProps) => {
@@ -66,18 +61,17 @@ const Chat: React.FC<ChatProps> = ({ socket }) => {
       toast(`${userName?.user}` + ' saiu');
     }
 
-    // Não escuta o socket caso não tenha nenhuma interação de envio de mensagem
     return () => {
       socket?.off('receive_message');
     };
   }, [action, socket, userName]);
 
-  // Função para rolar as mensagens para o final de acordo com a atualização do array
+  // Função para rolar as mensagens para o final de acordo com a atualização
+  // do array de mensagens
   useEffect(() => {
     scrollDown();
   }, [messageList]);
 
-  // Função de envio da mensagem, chamada no submit do fomulário
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!inputValue?.trim()) return;
@@ -93,12 +87,7 @@ const Chat: React.FC<ChatProps> = ({ socket }) => {
 
   return (
     <Container>
-      {/* Div que comporta a lista de mensagens e ativa a barra de rolagem se necessário */}
       <div className='messages'>
-        {/*
-          Listagem das mensagens enviadas, contendo o usuário que enviou, a
-          mensagem enviada e data e hora que foi enviada
-        */}
         {messageList.map((item) => {
           return (
             <div key={crypto.randomUUID()} className='message'>
@@ -115,7 +104,6 @@ const Chat: React.FC<ChatProps> = ({ socket }) => {
         <div ref={bottomRef} />
       </div>
 
-      {/* Formulaŕio para enviar a mensagem, contém o input e o botão */}
       <form onSubmit={(e) => handleSubmit(e)}>
         <input
           type='text'
